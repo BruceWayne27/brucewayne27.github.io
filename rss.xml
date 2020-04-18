@@ -1,0 +1,2066 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+
+
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>BruceWayne27</title>
+        <link>https://brucewayne27.github.io/</link>
+        <description>MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</description>
+        <generator>Hugo 0.68.3 https://gohugo.io/</generator>
+        
+            <language>zh-CN</language>
+        
+        
+            <managingEditor>847243182@qq.com (BruceWayne27)</managingEditor>
+        
+        
+            <webMaster>847243182@qq.com (BruceWayne27)</webMaster>
+        
+        
+            <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+        
+        <lastBuildDate>Sat, 18 Apr 2020 23:06:39 +0800</lastBuildDate>
+        
+            <atom:link rel="self" type="application/rss+xml" href="https://brucewayne27.github.io/rss.xml" />
+        
+        
+            <item>
+                <title>2.1线性表的定义和基本操作</title>
+                <link>https://brucewayne27.github.io/post/2.1%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</link>
+                <guid isPermaLink="true">https://brucewayne27.github.io/post/2.1%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</guid>
+                <pubDate>Sat, 18 Apr 2020 19:57:40 +0800</pubDate>
+                
+                    <author>847243182@qq.com (BruceWayne27)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description><![CDATA[<h4 id="21线性表">2.1线性表</h4>
+<h5 id="211线性表的定义">2.1.1线性表的定义:</h5>
+<p>    线性表是具有 <em><strong>相同数据类型</strong></em> 的n(n&gt;=0)个数据元素的 <em><strong>有限序列</strong></em> ，其中n为表长，当n=0时线性表是一个空表。若用L命名线性表，则其一般表示为</p>
+<pre><code>L=(a1,a2,a3,···,ai,ai+1,···,an)
+</code></pre>
+<h5 id="212线性表的特点">2.1.2线性表的特点:</h5>
+<pre><code>	1.元素个数有限
+	2.元素具有逻辑上的顺序性,元素有先后次序
+	3.元素都是数据元素,每个元素都是单个元素
+	4.元素的数据类型都相同,即每个元素的存储空间相同
+</code></pre><h4 id="22线性表的顺序表示">2.2线性表的顺序表示</h4>
+<h5 id="221顺序表的定义">2.2.1顺序表的定义</h5>
+<p>    线性表的顺序存储又称为 <em><strong>顺序表</strong></em> 。用一组地址连续的存储单元依次存储线性表中的数据元素，<em><strong>使相邻的元素逻辑和物理位置也相邻</strong></em> 。</p>
+<pre><code>线性表的元素位序从1开始,而数组真实下标从0开始
+</code></pre><h6 id="线性表的顺序存储">线性表的顺序存储:</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#define MaxSize 50           </span><span class="c1">//最大长度
+</span><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>             <span class="c1">//强迫症
+</span><span class="c1"></span>    <span class="n">ElemType</span> <span class="n">data</span><span class="p">[</span><span class="n">MaxSize</span><span class="p">];</span><span class="c1">//元素
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>           <span class="c1">//当前长度
+</span><span class="c1"></span><span class="p">}</span><span class="n">SqList</span><span class="p">;</span>                 <span class="c1">//定义类型
+</span></code></pre></td></tr></table>
+</div>
+</div><h6 id="动态分配">动态分配:</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#define InitSize 100        </span><span class="c1">//表长度的初始定义
+</span><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>            <span class="c1">//
+</span><span class="c1"></span>    <span class="n">ElemType</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>       <span class="c1">//指示动态分配数组的指针
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">MaxSize</span><span class="p">,</span><span class="n">length</span><span class="p">;</span>  <span class="c1">//数组的最大容量和当前个数
+</span><span class="c1"></span><span class="p">}</span><span class="n">SqList</span><span class="p">;</span>                <span class="c1">//动态分配数组的顺序表的类型定义
+</span><span class="c1">//c语言动态分配
+</span><span class="c1"></span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="o">=</span><span class="p">(</span><span class="n">ElemType</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">ElemType</span><span class="p">)</span><span class="o">*</span><span class="n">InitSize</span><span class="p">);</span>
+<span class="c1">//c++动态分配
+</span><span class="c1"></span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="o">=</span><span class="k">new</span> <span class="n">ElemType</span><span class="p">[</span><span class="n">InitSize</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="插入操作">插入操作:</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">bool</span> <span class="nf">ListInsert</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">Elemtype</span> <span class="n">e</span><span class="p">){</span>
+ <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">||</span><span class="n">i</span><span class="o">&gt;</span><span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>            <span class="c1">//判断i范围有效性
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>                <span class="c1">//
+</span><span class="c1"></span> <span class="k">if</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="o">+</span><span class="mi">1</span><span class="o">&gt;=</span><span class="n">L</span><span class="p">.</span><span class="n">MaxSize</span><span class="p">)</span>      <span class="c1">//存储满,不能插入
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>              <span class="c1">//
+</span><span class="c1"></span> <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="n">j</span><span class="o">&gt;=</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="o">--</span><span class="p">)</span> <span class="c1">//第i个及之后元素后移
+</span><span class="c1"></span>    <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>   <span class="c1">//
+</span><span class="c1"></span> <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">e</span><span class="p">;</span>             <span class="c1">//在位置i插入e
+</span><span class="c1"></span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="o">++</span><span class="p">;</span>               <span class="c1">//线性表长度+1
+</span><span class="c1"></span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>	
+<span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="删除操作">删除操作:</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">bool</span> <span class="nf">ListDelete</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">Elemtype</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">||</span><span class="n">i</span><span class="o">&gt;</span><span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">)</span>                 <span class="c1">//判断有效性
+</span><span class="c1"></span>        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>                  <span class="c1">//     
+</span><span class="c1"></span>    <span class="n">e</span><span class="o">=</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>                    <span class="c1">//被删除元素赋值给e
+</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="c1">//第i个位置后的元素前移
+</span><span class="c1"></span>        <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>      <span class="c1">//
+</span><span class="c1"></span>    <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="o">--</span><span class="p">;</span>                    <span class="c1">//表长度-1
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+	    
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="按值查找">按值查找:</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="nf">LocateElem</span><span class="p">(</span><span class="n">SqList</span> <span class="n">L</span><span class="p">,</span> <span class="n">Elemtype</span> <span class="n">e</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>     <span class="c1">//下标为i的元素值为e返回位置i+1
+</span><span class="c1"></span>    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="综合案例">综合案例：</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cp">#define InitSize 30
+</span><span class="cp"></span><span class="k">typedef</span> <span class="kt">int</span> <span class="n">Elemtype</span><span class="p">;</span>
+<span class="k">struct</span> <span class="nc">SqList</span><span class="p">{</span>  <span class="c1">//结构体 
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">MaxSize</span><span class="p">,</span><span class="n">length</span><span class="p">;</span>
+<span class="p">}</span><span class="n">L</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">LocateElem</span><span class="p">(</span><span class="n">SqList</span> <span class="n">L</span><span class="p">,</span> <span class="n">Elemtype</span> <span class="n">e</span><span class="p">);</span>         <span class="c1">//查找 
+</span><span class="c1"></span><span class="kt">bool</span> <span class="nf">ListDelete</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">Elemtype</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">);</span><span class="c1">//删除
+</span><span class="c1"></span><span class="kt">bool</span> <span class="nf">ListInsert</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">Elemtype</span> <span class="n">e</span><span class="p">);</span><span class="c1">//插入 
+</span><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">e</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="c1">//目标元素 
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">in</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="c1">//位置 
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">Intsize</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
+    <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">Intsize</span><span class="p">];</span><span class="c1">//顺序表动态申请 
+</span><span class="c1"></span>    <span class="n">L</span><span class="p">.</span><span class="n">MaxSize</span><span class="o">=</span><span class="mi">50</span><span class="p">;</span>
+    <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span> <span class="c1">//创建表 
+</span><span class="c1"></span>        <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;原有顺序表：&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&#34; &#34;</span><span class="p">;</span> 
+    <span class="p">}</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>	
+     <span class="n">ListInsert</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">in</span><span class="p">,</span><span class="n">e</span><span class="p">);</span><span class="c1">//插入 
+</span><span class="c1"></span>      <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">in</span><span class="o">&lt;&lt;</span><span class="s">&#34;位置插入&#34;</span><span class="o">&lt;&lt;</span><span class="n">e</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&#34; &#34;</span><span class="p">;</span> 
+    <span class="p">}</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">ListDelete</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">in</span><span class="p">,</span><span class="n">e</span><span class="p">);</span><span class="c1">//删除 
+</span><span class="c1"></span>    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">in</span><span class="o">&lt;&lt;</span><span class="s">&#34;位置删除&#34;</span><span class="o">&lt;&lt;</span><span class="n">e</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&#34; &#34;</span><span class="p">;</span> 
+    <span class="p">}</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    
+    <span class="n">LocateElem</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">e</span><span class="p">);</span><span class="c1">//搜索
+</span><span class="c1"></span>	 <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">e</span><span class="o">&lt;&lt;</span><span class="s">&#34;的位置&#34;</span><span class="o">&lt;&lt;</span><span class="n">LocateElem</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&#34; &#34;</span><span class="p">;</span> 
+    <span class="p">}</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">;</span><span class="c1">//释放内存 
+</span><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+<span class="kt">bool</span> <span class="nf">ListInsert</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">Elemtype</span> <span class="n">e</span><span class="p">){</span>
+ <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">||</span><span class="n">i</span><span class="o">&gt;</span><span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+ <span class="k">if</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="o">+</span><span class="mi">1</span><span class="o">&gt;=</span><span class="n">L</span><span class="p">.</span><span class="n">MaxSize</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+ <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="n">j</span><span class="o">&gt;=</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="o">--</span><span class="p">)</span>
+    <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+ <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">e</span><span class="p">;</span>
+ <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="o">++</span><span class="p">;</span>
+ <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>	
+<span class="p">}</span>
+<span class="kt">bool</span> <span class="nf">ListDelete</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">Elemtype</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">||</span><span class="n">i</span><span class="o">&gt;</span><span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">e</span><span class="o">=</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+    <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="o">--</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+	    
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">LocateElem</span><span class="p">(</span><span class="n">SqList</span> <span class="n">L</span><span class="p">,</span> <span class="n">Elemtype</span> <span class="n">e</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/categories/%E7%BA%BF%E6%80%A7%E8%A1%A8/">线性表</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8%E5%AE%9A%E4%B9%89/">线性表定义</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>程序设计与算法一</title>
+                <link>https://brucewayne27.github.io/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B8%80/</link>
+                <guid isPermaLink="true">https://brucewayne27.github.io/post/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B8%80/</guid>
+                <pubDate>Fri, 10 Apr 2020 21:33:18 +0800</pubDate>
+                
+                    <author>847243182@qq.com (BruceWayne27)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description><![CDATA[<h2 id="001输出第二个整数">001:输出第二个整数</h2>
+<h3 id="描述">描述：</h3>
+<pre><code> 输入三个整数，把第二个输入的整数输出。
+</code></pre>
+<h3 id="输入">输入：</h3>
+<pre><code> 只有一行，共三个整数，整数之间由一个空格分隔。整数是32位有符号整数。  
+</code></pre>
+<h3 id="输出">输出：</h3>
+<pre><code> 只有一行，一个整数，即输入的第二个整数。
+</code></pre>
+<h3 id="样例输入">样例输入：</h3>
+<pre><code>123 456 789
+</code></pre>
+<h3 id="样例输出">样例输出：</h3>
+<pre><code>456
+</code></pre>
+<h3 id="代码">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="o">&gt;&gt;</span><span class="n">b</span><span class="o">&gt;&gt;</span><span class="n">c</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">b</span><span class="p">;</span> 
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="002字符菱形">002:字符菱形</h2>
+<h3 id="描述-1">描述：</h3>
+<pre><code> 给定一个字符，用它构造一个对角线长5个字符，倾斜放置的菱形。  
+</code></pre>
+<h3 id="输入-1">输入:</h3>
+<pre><code> 输入只有一行， 包含一个字符。  
+</code></pre>
+<h3 id="输出-1">输出：</h3>
+<pre><code> 该字符构成的菱形。  
+</code></pre>
+<h3 id="样例输入-1">样例输入：</h3>
+<pre><code>*
+</code></pre>
+<h3 id="样例输出-1">样例输出：</h3>
+<pre><code>  *
+ ***
+*****
+ ***
+  *
+</code></pre>
+<h3 id="代码-1">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">char</span> <span class="n">cr</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">cr</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;  &#34;</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34; &#34;</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34; &#34;</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;  &#34;</span><span class="o">&lt;&lt;</span><span class="n">cr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="003打印ascii码">003:打印ASCII码</h2>
+<h3 id="描述-2">描述：</h3>
+<pre><code> 输入一个除空格以外的可见字符（保证在函数scanf中可使用格式说明符%c读入），
+ 输出其ASCII码。
+</code></pre>
+<h3 id="输入-2">输入：</h3>
+<pre><code> 一个除空格以外的可见字符。
+</code></pre>
+<h3 id="输出-2">输出：</h3>
+<pre><code> 一个十进制整数，即该字符的ASCII码。
+</code></pre>
+<h3 id="样例输入-2">样例输入：</h3>
+<pre><code>A
+</code></pre>
+<h3 id="样例输出-2">样例输出：</h3>
+<pre><code>65
+</code></pre>
+<h3 id="代码-2">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">char</span> <span class="n">cr</span><span class="p">;</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%c&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">cr</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="n">cr</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="004打印字符">004:打印字符</h2>
+<h3 id="描述-3">描述：</h3>
+<pre><code> 输入一个ASCII码，输出对应的字符。
+</code></pre>
+<h3 id="输入-3">输入：</h3>
+<pre><code> 一个整数，即字符的ASCII码，保证存在对应的可见字符。
+</code></pre>
+<h3 id="输出-3">输出：</h3>
+<pre><code> 一行，包含相应的字符。
+</code></pre>
+<h3 id="样例输入-3">样例输入：</h3>
+<pre><code>65
+</code></pre>
+<h3 id="样例输出-3">样例输出：</h3>
+<pre><code>A
+</code></pre>
+<h3 id="代码-3">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">cr</span><span class="p">;</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">cr</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c&#34;</span><span class="p">,</span><span class="n">cr</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="005整型数据类型存储空间大小">005:整型数据类型存储空间大小</h2>
+<h3 id="描述-4">描述：</h3>
+<pre><code> 分别定义int，short类型的变量各一个，并依次输出它们的存储空间大小（单位：字节）。
+</code></pre>
+<h3 id="输入-4">输入：</h3>
+<pre><code>无。
+</code></pre>
+<h3 id="输出-4">输出：</h3>
+<pre><code>一行，两个整数，分别是两个变量的存储空间大小，用一个空格隔开。
+</code></pre>
+<h3 id="样例输入-4">样例输入：</h3>
+<pre><code>（无）
+</code></pre>
+<h3 id="样例输出-4">样例输出：</h3>
+<pre><code>（不提供）
+</code></pre>
+<h3 id="提示">提示：</h3>
+<pre><code>使用sizeof函数可以得到一个特定变量的存储空间大小。  
+例如：对于int型变量x，sizeof(x)的值为4，即x的存储空间为4字节。 
+</code></pre>
+<h3 id="代码-4">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">short</span><span class="p">);</span>
+    
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>  
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="006浮点型数据类型存储空间大小">006:浮点型数据类型存储空间大小</h2>
+<h3 id="描述-5">描述：</h3>
+<pre><code> 分别定义float，double类型的变量各一个，并依次输出它们的存储空间大小（单位：字节）。
+</code></pre>
+<h3 id="输入-5">输入：</h3>
+<pre><code> 无。
+</code></pre>
+<h3 id="输出-5">输出：</h3>
+<pre><code>一行，两个整数，分别是两个变量的存储空间大小，用一个空格隔开。
+</code></pre>
+<h3 id="样例输入-5">样例输入：</h3>
+<pre><code>（无）
+</code></pre>
+<h3 id="样例输出-5">样例输出：</h3>
+<pre><code>（不提供）
+</code></pre>
+<h3 id="代码-5">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="007对齐输出">007:对齐输出</h2>
+<h3 id="描述-6">描述：</h3>
+<pre><code> 读入三个整数，按每个整数占8个字符的宽度，右对齐输出它们。
+</code></pre>
+<h3 id="输入-6">输入：</h3>
+<pre><code>只有一行，包含三个整数，整数之间以一个空格分开。
+</code></pre>
+<h3 id="输出-6">输出：</h3>
+<pre><code>只有一行，按照格式要求依次输出三个整数，之间以一个空格分开。
+</code></pre>
+<h3 id="样例输入-6">样例输入：</h3>
+<pre><code>123456789 0 -1
+</code></pre>
+<h3 id="样例输出-6">样例输出:</h3>
+<pre><code>123456789 0 -1
+</code></pre>
+<h3 id="代码-6">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d %d %d&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="o">&amp;</span><span class="n">b</span><span class="p">,</span><span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%8d %8d %8d&#34;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="008输出保留12位小数的浮点数">008:输出保留12位小数的浮点数</h2>
+<h3 id="描述-7">描述：</h3>
+<pre><code> 读入一个双精度浮点数，保留12位小数，输出这个浮点数。
+</code></pre>
+<h3 id="输入-7">输入：</h3>
+<pre><code>只有一行，一个双精度浮点数。
+</code></pre>
+<h3 id="输出-7">输出：</h3>
+<pre><code>也只有一行，保留12位小数的浮点数。
+</code></pre>
+<h3 id="样例输入-7">样例输入：</h3>
+<pre><code>3.1415926535798932
+</code></pre>
+<h3 id="样例输出-7">样例输出：</h3>
+<pre><code>3.141592653580
+</code></pre>
+<h3 id="代码-7">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.12lf&#34;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="009空格分隔输出">009:空格分隔输出</h2>
+<h3 id="描述-8">描述：</h3>
+<pre><code> 读入一个字符，一个整数，一个单精度浮点数，一个双精度浮点数，然后按顺序输出它们，
+ 并且要求在他们之间用一个空格分隔。输出浮点数时保留6位小数。
+</code></pre>
+<h3 id="输入-8">输入：</h3>
+<pre><code>共有四行：
+第一行是一个字符；
+第二行是一个整数；
+第三行是一个单精度浮点数；
+第四行是一个双精度浮点数。
+</code></pre>
+<h3 id="输出-8">输出:</h3>
+<pre><code>输出字符、整数、单精度浮点数和双精度浮点数，之间用空格分隔。
+</code></pre>
+<h3 id="样例输入-8">样例输入:</h3>
+<pre><code>a
+12
+2.3
+3.2
+</code></pre>
+<h3 id="样例输出-8">样例输出：</h3>
+<pre><code>a 12 2.300000 3.200000
+</code></pre>
+<h3 id="代码-8">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="kt">char</span> <span class="n">a</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">c</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+  <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="o">&gt;&gt;</span><span class="n">b</span><span class="o">&gt;&gt;</span><span class="n">c</span><span class="o">&gt;&gt;</span><span class="n">d</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c %d %.6f %.6lf&#34;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="010计算球的体积">010:计算球的体积</h2>
+<h3 id="描述-9">描述:</h3>
+<h4 id="对于半径为r的球其体积的计算公式为v43πr3这里取π-314现给定r求v">对于半径为r的球，其体积的计算公式为V=4/3*πr3，这里取π= 3.14。现给定r，求V。</h4>
+<h3 id="输入-9">输入：</h3>
+<pre><code>输入为一个不超过100的非负实数，即球半径，类型为double。
+</code></pre>
+<h3 id="输出-9">输出：</h3>
+<pre><code>输出一个实数，即球的体积，保留到小数点后2位。
+</code></pre>
+<h3 id="样例输入-9">样例输入：</h3>
+<pre><code>4
+</code></pre>
+<h3 id="样例输出-9">样例输出：</h3>
+<pre><code>267.95
+</code></pre>
+<h3 id="代码-9">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">double</span> <span class="n">r</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">r</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.2lf&#34;</span><span class="p">,</span><span class="mf">4.0</span><span class="o">/</span><span class="mf">3.0</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="p">);</span>
+	
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="011大象喝水">011:大象喝水</h2>
+<h3 id="描述-10">描述：</h3>
+<h4 id="一只大象口渴了要喝20升水才能解渴但现在只有一个深h厘米底面半径为r厘米的小圆桶h和r都是整数问大象至少要喝多少桶水才会解渴">一只大象口渴了，要喝20升水才能解渴，但现在只有一个深h厘米，底面半径为r厘米的小圆桶(h和r都是整数)。问大象至少要喝多少桶水才会解渴。</h4>
+<h3 id="输入-10">输入：</h3>
+<pre><code>输入有一行：包行两个整数，以一个空格分开，分别表示小圆桶的深h和底面半径r，
+单位都是厘米。
+</code></pre>
+<h3 id="输出-10">输出：</h3>
+<pre><code>输出一行，包含一个整数，表示大象至少要喝水的桶数。
+</code></pre>
+<h3 id="样例输入-10">样例输入：</h3>
+<pre><code>23 11
+</code></pre>
+<h3 id="样例输出-10">样例输出：</h3>
+<pre><code>3
+</code></pre>
+<h3 id="提示-1">提示：</h3>
+<pre><code>如果一个圆桶的深为h厘米，底面半径为r厘米，那么它最多能装Pi * r * r * h立方厘米的水。  
+(设Pi=3.14159)
+1升 = 1000毫升
+1毫升 = 1 立方厘米
+</code></pre>
+<h3 id="代码-10">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">h</span><span class="p">,</span><span class="n">r</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">h</span><span class="o">&gt;&gt;</span><span class="n">r</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">pi</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">20000</span> <span class="o">/</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="n">num</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">num2</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">){</span>
+         <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">num2</span><span class="o">+</span><span class="mi">1</span><span class="p">;}</span>
+    <span class="k">else</span><span class="p">{</span>
+         <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">num</span><span class="p">;</span>
+    <span class="p">}</span>
+	
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="012奇偶数判断">012:奇偶数判断</h2>
+<h3 id="描述-11">描述</h3>
+<h4 id="给定一个整数判断该数是奇数还是偶数">给定一个整数，判断该数是奇数还是偶数。</h4>
+<h3 id="输入-11">输入:</h3>
+<pre><code>输入仅一行，一个大于零的正整数n。
+</code></pre>
+<h3 id="输出-11">输出:</h3>
+<pre><code>输出仅一行，如果n是奇数，输出odd；如果n是偶数，输出even。
+</code></pre>
+<h3 id="样例输入-11">样例输入:</h3>
+<pre><code>5
+</code></pre>
+<h3 id="样例输出-11">样例输出:</h3>
+<pre><code>odd
+</code></pre>
+<h3 id="代码-11">代码:</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;even&#34;</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;odd&#34;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="013求一元二次方程的根">013:求一元二次方程的根</h2>
+<h3 id="描述-12">描述</h3>
+<h4 id="利用公式x1---b--sqrtbb-4ac2a-x2---b---sqrtbb-4ac2a求一元二次方程ax2-bx--c-0的根其中a不等于0">利用公式x1 = (-b + sqrt(b<em>b-4</em>a<em>c))/(2</em>a), x2 = (-b - sqrt(b<em>b-4</em>a<em>c))/(2</em>a)求一元二次方程ax2+ bx + c =0的根，其中a不等于0。</h4>
+<h3 id="输入-12">输入:</h3>
+<pre><code>输入一行，包含三个浮点数a, b, c（它们之间以一个空格分开），
+分别表示方程ax2 + bx + c =0的系数。
+</code></pre>
+<h3 id="输出-12">输出:</h3>
+<pre><code>输出一行，表示方程的解。
+若b2 = 4 * a * c,则两个实根相等，则输出形式为：x1=x2=...。
+若b2 &gt; 4 * a * c,则两个实根不等，则输出形式为：x1=...;x2 = ...，其中x1&gt;x2。
+若b2 &lt; 4 * a * c，则有两个虚根，则输出：x1=实部+虚部i; x2=实部-虚部i，
+即x1的虚部系数大于等于x2的虚部系数，实部为0时不可省略。
+实部 = -b / (2*a), 虚部 = sqrt(4*a*c-b*b) / (2*a)
+
+所有实数部分要求精确到小数点后5位，数字、符号之间没有空格。
+</code></pre>
+<h3 id="样例输入-12">样例输入:</h3>
+<pre><code>样例输入1
+1.0 2.0 8.0
+
+样例输入2
+1 0 1
+</code></pre>
+<h3 id="样例输出-12">样例输出:</h3>
+<pre><code>样例输出1
+x1=-1.00000+2.64575i;x2=-1.00000-2.64575i
+
+样例输出2
+x1=0.00000+1.00000i;x2=0.00000-1.00000i
+</code></pre>
+<h3 id="代码-12">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">lude</span><span class="o">&lt;</span><span class="n">iostream</span><span class="o">&gt;</span>
+<span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="o">&gt;&gt;</span><span class="n">b</span><span class="o">&gt;&gt;</span><span class="n">c</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">;</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;x1=x2=%.5lf&#34;</span><span class="p">,</span><span class="n">x1</span><span class="p">);</span>
+		
+    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">x1</span> <span class="o">&gt;</span> <span class="n">x2</span><span class="p">){</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;x1=%.5lf;x2=%.5lf&#34;</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">);</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;x1=%.5lf;x2=%.5lf&#34;</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x1</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">){</span>
+        <span class="n">x1</span> <span class="o">=</span>  <span class="o">-</span><span class="n">b</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">x1</span> <span class="o">==</span> <span class="o">-</span><span class="mf">0.00000</span><span class="p">){</span>
+            <span class="n">x1</span><span class="o">=-</span><span class="n">x1</span><span class="p">;</span>
+        <span class="p">}</span>
+		
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;x1=%.5lf+%.5lfi;x2=%.5lf-%.5lfi&#34;</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">),</span><span class="n">x1</span><span class="p">,</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">));</span>
+		
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="014点和正方形的关系">014:点和正方形的关系</h2>
+<h3 id="描述-13">描述</h3>
+<pre><code>有一个正方形，四个角的坐标（x,y)分别是（1，-1），（1，1），（-1，-1），（-1，1），
+x是横轴，y是纵轴。
+写一个程序，判断一个给定的点是否在这个正方形内（包括正方形边界）。
+</code></pre>
+<h3 id="输入-13">输入:</h3>
+<pre><code>输入一行，包括两个整数x、y，以一个空格分开，表示坐标(x,y)。
+</code></pre>
+<h3 id="输出-13">输出:</h3>
+<pre><code>输出一行，如果点在正方形内，则输出yes，否则输出no。
+</code></pre>
+<h3 id="样例输入-13">样例输入:</h3>
+<pre><code>1 1
+</code></pre>
+<h3 id="样例输出-13">样例输出:</h3>
+<pre><code>yes
+</code></pre>
+<h3 id="代码-13">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">x</span><span class="o">&gt;&gt;</span><span class="n">y</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;yes&#34;</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;no&#34;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="015苹果和虫子2">015:苹果和虫子2</h2>
+<h3 id="描述-14">描述</h3>
+<pre><code>你买了一箱n个苹果，很不幸的是买完时箱子里混进了一条虫子。虫子每x小时能吃掉一个苹果，
+假设虫子在吃完一个苹果之前不会吃另一个，那么经过y小时你还有多少个完整的苹果？
+</code></pre>
+<h3 id="输入-14">输入:</h3>
+<pre><code>输入仅一行，包括n，x和y（均为整数）。
+</code></pre>
+<h3 id="输出-14">输出:</h3>
+<pre><code>输出也仅一行，剩下的苹果个数
+</code></pre>
+<h3 id="样例输入-14">样例输入:</h3>
+<pre><code>10 4 9
+</code></pre>
+<h3 id="样例输出-14">样例输出:</h3>
+<pre><code>7
+</code></pre>
+<h3 id="提示-2">提示:</h3>
+<pre><code>注意：是要求完整的苹果数。 
+</code></pre>
+<h3 id="代码-14">代码:</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">x</span><span class="o">&gt;&gt;</span><span class="n">y</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">((</span><span class="n">n</span><span class="o">-</span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="p">;</span>	
+        <span class="p">}</span>
+		
+    <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">((</span><span class="n">n</span><span class="o">-</span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>	
+        <span class="p">}</span>
+		
+<span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="016简单计算器">016:简单计算器</h2>
+<h3 id="描述-15">描述</h3>
+<pre><code>一个最简单的计算器，支持 + , - , * , / 
+四种运算。仅需考虑输入输出为整数的情况，数据和运算结果不会超过int表示的范围。
+</code></pre>
+<h3 id="输入-15">输入:</h3>
+<pre><code>输入只有一行，共有三个参数，其中第1、2个参数为整数，第3个参数为操作符（+,-,*,/）。
+</code></pre>
+<h3 id="输出-15">输出:</h3>
+<pre><code>输出只有一行，一个整数，为运算结果。然而：
+1. 如果出现除数为0的情况，则输出：Divided by zero!
+2. 如果出现无效的操作符(即不为 +, -, *, / 之一），则输出：Invalid operator!
+</code></pre>
+<h3 id="样例输入-15">样例输入:</h3>
+<pre><code>1 2 +
+</code></pre>
+<h3 id="样例输出-15">样例输出:</h3>
+<pre><code>3
+</code></pre>
+<h3 id="提示-3">提示:</h3>
+<pre><code>可以考虑使用if和switch结构。
+</code></pre>
+<h3 id="代码-15">代码：</h3>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+int main()
+{
+    int x,y;
+    char r;
+    cin&gt;&gt;x&gt;&gt;y&gt;&gt;r;
+    if(y==0 &amp;&amp; int(r)==int('/')){
+        cout&lt;&lt;&quot;Divided by zero!&quot;&lt;&lt;endl;
+    }
+    else{
+    switch(int(r)){
+        case int('+'):
+            cout&lt;&lt;x+y&lt;&lt;endl;
+            break;
+        case int('-'):
+            cout&lt;&lt;x-y&lt;&lt;endl;
+            break;
+        case int('*'):
+            cout&lt;&lt;x*y&lt;&lt;endl;
+            break;
+        case int('/'):
+            cout&lt;&lt;x/y&lt;&lt;endl;
+            break;
+        default:
+            cout&lt;&lt;&quot;Invalid operator!&quot;&lt;&lt;endl;
+    }
+    }
+    return 0;
+}
+</code></pre><hr>
+<h2 id="017求整数的和与均值">017:求整数的和与均值</h2>
+<h3 id="描述-16">描述</h3>
+<pre><code>读入n（1 &lt;= n &lt;= 10000）个整数，求它们的和与均值。
+</code></pre>
+<p>输入
+输入第一行是一个整数n，表示有n个整数。
+第2~n+1行每行包含1个整数。每个整数的绝对值均不超过10000。
+输出
+输出一行，先输出和，再输出平均值（保留到小数点后5位），两个数间用单个空格分隔。
+样例输入</p>
+<pre><code>4
+344
+222
+343
+222
+</code></pre>
+<p>样例输出</p>
+<pre><code>1131 282.75000
+</code></pre>
+<h3 id="代码-16">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">10000</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">sum2</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">sum</span><span class="o">+=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="n">sum2</span> <span class="o">=</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d %.5lf&#34;</span><span class="p">,</span><span class="n">sum2</span><span class="p">,</span><span class="n">sum</span><span class="o">/</span><span class="n">n</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="018整数序列的元素最大跨度值">018:整数序列的元素最大跨度值</h2>
+<h3 id="描述-17">描述</h3>
+<pre><code>给定一个长度为n的非负整数序列，请计算序列的最大跨度值（最大跨度值 = 最大值减去最小值）。
+</code></pre>
+<h3 id="输入-16">输入:</h3>
+<pre><code>一共2行，第一行为序列的个数n（1 &lt;= n &lt;= 1000)，第二行为序列的n个不超过1000的非负
+整数，整数之间以一个空格分隔。
+</code></pre>
+<h3 id="输出-16">输出:</h3>
+<pre><code>输出一行，表示序列的最大跨度值。
+</code></pre>
+<h3 id="样例输入-16">样例输入:</h3>
+<pre><code>6
+3 0 8 7 5 9
+</code></pre>
+<h3 id="样例输出-16">样例输出:</h3>
+<pre><code>9
+</code></pre>
+<h3 id="代码-17">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">max</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">min</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="n">a</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">max</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">min</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="n">min</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">max</span><span class="o">-</span><span class="n">min</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="019奥运奖牌计数">019:奥运奖牌计数</h2>
+<h3 id="描述-18">描述</h3>
+<pre><code>2008年北京奥运会，A国的运动员参与了n天的决赛项目(1≤n≤17)。现在要统计一下A国所获得的
+金、银、铜牌数目及总奖牌数。
+</code></pre>
+<h3 id="输入-17">输入:</h3>
+<pre><code>输入n＋1行，第1行是A国参与决赛项目的天数n，其后n行，每一行是该国某一天获得的金、银、铜
+牌数目，以一个空格分开。
+</code></pre>
+<h3 id="输出-17">输出:</h3>
+<pre><code>输出1行，包括4个整数，为A国所获得的金、银、铜牌总数及总奖牌数，以一个空格分开。
+</code></pre>
+<h3 id="样例输入-17">样例输入:</h3>
+<pre><code>3
+1 0 3
+3 1 0
+0 3 0
+</code></pre>
+<h3 id="样例输出-17">样例输出:</h3>
+<pre><code>4 4 3 11
+</code></pre>
+<h3 id="代码-18">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">suma</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sumb</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sumc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="o">&gt;&gt;</span><span class="n">b</span><span class="o">&gt;&gt;</span><span class="n">c</span><span class="p">;</span>
+        <span class="n">suma</span><span class="o">+=</span><span class="n">a</span><span class="p">;</span>
+        <span class="n">sumb</span><span class="o">+=</span><span class="n">b</span><span class="p">;</span>
+        <span class="n">sumc</span><span class="o">+=</span><span class="n">c</span><span class="p">;</span>
+		
+    <span class="p">}</span>
+    <span class="n">sum</span><span class="o">=</span><span class="n">suma</span><span class="o">+</span><span class="n">sumb</span><span class="o">+</span><span class="n">sumc</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">suma</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">sumb</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">sumc</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">sum</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="020乘方计算">020:乘方计算</h2>
+<h3 id="描述-19">描述</h3>
+<pre><code>给出一个整数a和一个正整数n，求乘方an。
+</code></pre>
+<h3 id="输入-18">输入:</h3>
+<pre><code>一行，包含两个整数a和n。-1000000 &lt;= a &lt;= 1000000，1 &lt;= n &lt;= 10000。
+</code></pre>
+<h3 id="输出-18">输出:</h3>
+<pre><code>一个整数，即乘方结果。题目保证最终结果的绝对值不超过1000000。
+</code></pre>
+<h3 id="样例输入-18">样例输入:</h3>
+<pre><code>2 3
+</code></pre>
+<h3 id="样例输出-18">样例输出:</h3>
+<pre><code>8
+</code></pre>
+<h3 id="代码-19">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">an</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+    <span class="n">an</span><span class="o">=</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="n">an</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="021鸡尾酒疗法">021:鸡尾酒疗法</h2>
+<h3 id="描述-20">描述</h3>
+<p>鸡尾酒疗法，原指“高效抗逆转录病毒治疗”（HAART），由美籍华裔科学家何大一于1996年提出，
+是通过三种或三种以上的抗病毒药物联合使用来治疗艾滋病。该疗法的应用可以减少单一用药产生
+的抗药性，最大限度地抑制病毒的复制，使被破坏的机体免疫功能部分甚至全部恢复，
+从而延缓病程进展，延长患者生命，提高生活质量。人们在鸡尾酒疗法的基础上又提出了很多
+种改进的疗法。为了验证这些治疗方法是否在疗效上比鸡尾酒疗法更好，可用通过临床对照实
+验的方式进行。假设鸡尾酒疗法的有效率为x，新疗法的有效率为y，如果y-x大于5%，则效果更
+好，如果x-y大于5%，则效果更差，否则称为效果差不多。
+下面给出n组临床对照实验，其中第一组采用鸡尾酒疗法，其他n-1组为各种不同的改进疗法。请写程
+序判定各种改进疗法效果如何。</p>
+<h3 id="输入-19">输入：</h3>
+<pre><code>第一行为整数n（ 1 &lt; n &lt;= 20）；
+其余n行每行两个整数，第一个整数是临床实验的总病例数(小于等于10000)，
+第二个疗效有效的病例数。
+这n行数据中，第一行为鸡尾酒疗法的数据，其余各行为各种改进疗法的数据。
+</code></pre>
+<h3 id="输出-19">输出：</h3>
+<pre><code>有n-1行输出，分别表示对应改进疗法的效果：
+如果效果更好，输出better；如果效果更差，输出worse；否则输出same
+</code></pre>
+<h3 id="样例输入-19">样例输入：</h3>
+<pre><code>5
+125 99
+112 89
+145 99
+99 97
+123 98
+</code></pre>
+<h3 id="样例输出-19">样例输出：</h3>
+<pre><code>same
+worse
+better
+same
+</code></pre>
+<h3 id="代码-20">代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*TEst*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="mi">21</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+         <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+     <span class="p">}</span>
+    <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+	
+        <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span> <span class="o">&gt;</span><span class="mf">0.05</span><span class="p">){</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;better&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+		 <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="o">&gt;</span><span class="mf">0.05</span><span class="p">){</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;worse&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;same&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/categories/c-/">C&#43;&#43;</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/categories/%E5%9F%BA%E7%A1%80/">基础</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/tags/c-/">C&#43;&#43;</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B8%80/">程序设计与算法一</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>介绍markdown</title>
+                <link>https://brucewayne27.github.io/post/%E4%BB%8B%E7%BB%8Dmarkdown/</link>
+                <guid isPermaLink="true">https://brucewayne27.github.io/post/%E4%BB%8B%E7%BB%8Dmarkdown/</guid>
+                <pubDate>Thu, 09 Apr 2020 13:42:21 +0800</pubDate>
+                
+                    <author>847243182@qq.com (BruceWayne27)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description><![CDATA[<h1 id="markdown用法">Markdown用法</h1>
+<p><strong>Markdown是一种轻量级的「标记语言」</strong></p>
+<p><img src="https://www.mdeditor.com/images/logos/markdown.png" alt="markdown" title="markdown"></p>
+<p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面，Markdown文件的后缀名便是“.md”</p>
+<h2 id="mdeditor是一个在线编辑markdown文档的编辑器">MdEditor是一个在线编辑Markdown文档的编辑器</h2>
+<p><em>MdEditor扩展了Markdown的功能（如表格、脚注、内嵌HTML等等），以使让Markdown转换成更多的格式，和更丰富的展示效果，这些功能原初的Markdown尚不具备。</em></p>
+<blockquote>
+<p>Markdown增强版中比较有名的有Markdown Extra、MultiMarkdown、 Maruku等。这些衍生版本要么基于工具，如<del>Pandoc</del>，Pandao；要么基于网站，如GitHub和Wikipedia，在语法上基本兼容，但在一些语法和渲染效果上有改动。</p>
+</blockquote>
+<p>MdEditor源于Pandao的JavaScript开源项目，开源地址<a href="https://github.com/pandao/editor.md" title="Editor.md">Editor.md</a>，并在MIT开源协议的许可范围内进行了优化，以适应广大用户群体的需求。向优秀的markdown开源编辑器原作者Pandao致敬。</p>
+<p><img src="https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png" alt="Pandao editor.md" title="Pandao editor.md"></p>
+<h2 id="mdeditor的功能列表演示">MdEditor的功能列表演示</h2>
+<h1 id="标题h1">标题H1</h1>
+<h2 id="标题h2">标题H2</h2>
+<h3 id="标题h3">标题H3</h3>
+<h4 id="标题h4">标题H4</h4>
+<h5 id="标题h5">标题H5</h5>
+<h6 id="标题h5-1">标题H5</h6>
+<h3 id="字符效果和横线等">字符效果和横线等</h3>
+<hr>
+<p><del>删除线</del> <s>删除线（开启识别HTML标签时）</s></p>
+<p><em>斜体字</em>      <em>斜体字</em></p>
+<p><strong>粗体</strong>  <strong>粗体</strong></p>
+<p><em><strong>粗斜体</strong></em> <em><strong>粗斜体</strong></em></p>
+<p>上标：X<sub>2</sub>，下标：O<sup>2</sup></p>
+<p><strong>缩写(同HTML的abbr标签)</strong></p>
+<blockquote>
+<p>即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启</p>
+</blockquote>
+<p>The <abbr title="Hyper Text Markup Language">HTML</abbr> specification is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
+<h3 id="引用-blockquotes">引用 Blockquotes</h3>
+<blockquote>
+<p>引用文本 Blockquotes</p>
+</blockquote>
+<p>引用的行内混合 Blockquotes</p>
+<blockquote>
+<p>引用：如果想要插入空白换行<code>即&lt;br /&gt;标签</code>，在插入处先键入两个以上的空格然后回车即可，<a href="https://www.mdeditor.com/">普通链接</a>。</p>
+</blockquote>
+<h3 id="锚点与链接-links">锚点与链接 Links</h3>
+<p><a href="https://www.mdeditor.com/">普通链接</a>
+<a href="https://www.mdeditor.com/" title="普通链接带标题">普通链接带标题</a>
+直接链接：<a href="https://www.mdeditor.com">https://www.mdeditor.com</a>
+[锚点链接][anchor-id]
+[anchor-id]: <a href="https://www.mdeditor.com/">https://www.mdeditor.com/</a>
+<a href="mailto:test.test@gmail.com">mailto:test.test@gmail.com</a>
+GFM a-tail link @pandao
+邮箱地址自动链接 <a href="mailto:test.test@gmail.com">test.test@gmail.com</a>  <a href="mailto:www@vip.qq.com">www@vip.qq.com</a></p>
+<blockquote>
+<p>@pandao</p>
+</blockquote>
+<h3 id="多语言代码高亮-codes">多语言代码高亮 Codes</h3>
+<h4 id="行内代码-inline-code">行内代码 Inline code</h4>
+<p>执行命令：<code>npm install marked</code></p>
+<h4 id="缩进风格">缩进风格</h4>
+<p>即缩进四个空格，也做为实现类似 <code>&lt;pre&gt;</code> 预格式化文本 ( Preformatted Text ) 的功能。</p>
+<pre><code>&lt;?php
+    echo &quot;Hello world!&quot;;
+?&gt;
+</code></pre>
+<p>预格式化文本：</p>
+<pre><code>| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+</code></pre>
+<h4 id="js代码">JS代码</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Hello world!&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="html-代码-html-codes">HTML 代码 HTML codes</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">mate</span> <span class="na">charest</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;keywords&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;Editor.md, Markdown, Editor&#34;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello world!<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span><span class="p">&gt;</span>
+            <span class="nt">body</span><span class="p">{</span><span class="k">font-size</span><span class="p">:</span><span class="mi">14</span><span class="kt">px</span><span class="p">;</span><span class="k">color</span><span class="p">:</span><span class="mh">#444</span><span class="p">;</span><span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;Microsoft Yahei&#34;</span><span class="p">,</span> <span class="n">Tahoma</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="n">Arial</span><span class="p">;</span><span class="k">background</span><span class="p">:</span><span class="mh">#fff</span><span class="p">;}</span>
+            <span class="nt">ul</span><span class="p">{</span><span class="k">list-style</span><span class="p">:</span> <span class="kc">none</span><span class="p">;}</span>
+            <span class="nt">img</span><span class="p">{</span><span class="k">border</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span><span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;}</span>
+        <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;text-xxl&#34;</span><span class="p">&gt;</span>Hello world!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;text-green&#34;</span><span class="p">&gt;</span>Plain text<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="图片-images">图片 Images</h3>
+<p>图片加链接 (Image + Link)：</p>
+<p><a href="https://www.mdeditor.com/images/logos/markdown.png" title="markdown"><img src="https://www.mdeditor.com/images/logos/markdown.png" alt=""></a></p>
+<blockquote>
+<p>Follow your heart.</p>
+</blockquote>
+<hr>
+<h3 id="列表-lists">列表 Lists</h3>
+<h4 id="无序列表减号unordered-lists--">无序列表（减号）Unordered Lists (-)</h4>
+<ul>
+<li>列表一</li>
+<li>列表二</li>
+<li>列表三</li>
+</ul>
+<h4 id="无序列表星号unordered-lists-">无序列表（星号）Unordered Lists (*)</h4>
+<ul>
+<li>列表一</li>
+<li>列表二</li>
+<li>列表三</li>
+</ul>
+<h4 id="无序列表加号和嵌套unordered-lists-">无序列表（加号和嵌套）Unordered Lists (+)</h4>
+<ul>
+<li>列表一</li>
+<li>列表二
+<ul>
+<li>列表二-1</li>
+<li>列表二-2</li>
+<li>列表二-3</li>
+</ul>
+</li>
+<li>列表三
+<ul>
+<li>列表一</li>
+<li>列表二</li>
+<li>列表三</li>
+</ul>
+</li>
+</ul>
+<h4 id="有序列表-ordered-lists--">有序列表 Ordered Lists (-)</h4>
+<ol>
+<li>第一行</li>
+<li>第二行</li>
+<li>第三行</li>
+</ol>
+<h4 id="gfm-task-list">GFM task list</h4>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> GFM task list 1</li>
+<li><input checked="" disabled="" type="checkbox"> GFM task list 2</li>
+<li><input disabled="" type="checkbox"> GFM task list 3
+<ul>
+<li><input disabled="" type="checkbox"> GFM task list 3-1</li>
+<li><input disabled="" type="checkbox"> GFM task list 3-2</li>
+<li><input disabled="" type="checkbox"> GFM task list 3-3</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> GFM task list 4
+<ul>
+<li><input disabled="" type="checkbox"> GFM task list 4-1</li>
+<li><input disabled="" type="checkbox"> GFM task list 4-2</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="绘制表格-tables">绘制表格 Tables</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th align="right">价格</th>
+<th align="center">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>计算机</td>
+<td align="right">$1600</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td>手机</td>
+<td align="right">$12</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td>管线</td>
+<td align="right">$1</td>
+<td align="center">234</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>First Header</th>
+<th>Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>First Header</th>
+<th>Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Function name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>help()</code></td>
+<td>Display the help window.</td>
+</tr>
+<tr>
+<td><code>destroy()</code></td>
+<td><strong>Destroy your computer!</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Left-Aligned</th>
+<th align="center">Center Aligned</th>
+<th align="right">Right Aligned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">col 3 is</td>
+<td align="center">some wordy text</td>
+<td align="right">$1600</td>
+</tr>
+<tr>
+<td align="left">col 2 is</td>
+<td align="center">centered</td>
+<td align="right">$12</td>
+</tr>
+<tr>
+<td align="left">zebra stripes</td>
+<td align="center">are neat</td>
+<td align="right">$1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th align="right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Computer</td>
+<td align="right">$1600</td>
+</tr>
+<tr>
+<td>Phone</td>
+<td align="right">$12</td>
+</tr>
+<tr>
+<td>Pipe</td>
+<td align="right">$1</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="特殊符号-html-entities-codes">特殊符号 HTML Entities Codes</h4>
+<p>© &amp;  ¨ ™ ¡ £
+&amp; &lt; &gt; ¥ € ® ± ¶ § ¦ ¯ « ·</p>
+<p>X² Y³ ¾ ¼  ×  ÷   »</p>
+<p>18ºC  &quot;  '</p>
+<p>[========]</p>
+<h3 id="emoji表情-smiley">Emoji表情 :smiley:</h3>
+<blockquote>
+<p>Blockquotes :star:</p>
+</blockquote>
+<h4 id="gfm-task-lists--emoji--fontawesome-icon-emoji--editormd-logo-emoji-editormd-logo-5x">GFM task lists &amp; Emoji &amp; fontAwesome icon emoji &amp; editormd logo emoji :editormd-logo-5x:</h4>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> :smiley: @mentions, :smiley: #refs, <a href="">links</a>, <strong>formatting</strong>, and <del>tags</del> supported :editormd-logo:;</li>
+<li><input checked="" disabled="" type="checkbox"> list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;</li>
+<li><input checked="" disabled="" type="checkbox"> <input disabled="" type="checkbox"> :smiley: this is a complete item :smiley:;</li>
+<li><input disabled="" type="checkbox"> []this is an incomplete item <a href="#">test link</a> :fa-star: @pandao;</li>
+<li><input disabled="" type="checkbox"> <input disabled="" type="checkbox"> this is an incomplete item :fa-star: :fa-gear:;
+<ul>
+<li><input disabled="" type="checkbox"> :smiley: this is an incomplete item <a href="#">test link</a> :fa-star: :fa-gear:;</li>
+<li><input disabled="" type="checkbox"> :smiley: this is  :fa-star: :fa-gear: an incomplete item <a href="#">test link</a>;</li>
+</ul>
+</li>
+</ul>
+<h4 id="反斜杠-escape">反斜杠 Escape</h4>
+<p>*literal asterisks*</p>
+<p>[========]</p>
+<h3 id="科学公式-texkatex">科学公式 TeX(KaTeX)</h3>
+<p>$$E=mc^2$$</p>
+<p>行内的公式$$E=mc^2$$行内的公式，行内的$$E=mc^2$$公式。</p>
+<p>$$x &gt; y$$</p>
+<p>$$(\sqrt{3x-1}+(1+x)^2)$$</p>
+<p>$$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$</p>
+<p>多行公式：</p>
+<pre><code class="language-math" data-lang="math">\displaystyle
+\left( \sum\_{k=1}^n a\_k b\_k \right)^2
+\leq
+\left( \sum\_{k=1}^n a\_k^2 \right)
+\left( \sum\_{k=1}^n b\_k^2 \right)
+</code></pre><pre><code class="language-katex" data-lang="katex">\displaystyle
+    \frac{1}{
+        \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+        \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+        1+\frac{e^{-6\pi}}
+        {1+\frac{e^{-8\pi}}
+         {1+\cdots} }
+        }
+    }
+</code></pre><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-latex" data-lang="latex">f(x) = <span class="k">\int</span><span class="nb">_{</span>-<span class="k">\infty</span><span class="nb">}^</span><span class="k">\infty</span>
+    <span class="k">\hat</span> f(<span class="k">\xi</span>)<span class="k">\,</span>e<span class="nb">^{</span>2 <span class="k">\pi</span> i <span class="k">\xi</span> x<span class="nb">}</span>
+    <span class="k">\,</span>d<span class="k">\xi</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="分页符-page-break">分页符 Page break</h3>
+<blockquote>
+<p>Print Test: Ctrl + P</p>
+</blockquote>
+<p>[========]</p>
+<h3 id="绘制流程图-flowchart">绘制流程图 Flowchart</h3>
+<pre><code class="language-flow" data-lang="flow">st=&gt;start: 用户登陆
+op=&gt;operation: 登陆操作
+cond=&gt;condition: 登陆成功 Yes or No?
+e=&gt;end: 进入后台
+
+st-&gt;op-&gt;cond
+cond(yes)-&gt;e
+cond(no)-&gt;op
+</code></pre><p>[========]</p>
+<h3 id="绘制序列图-sequence-diagram">绘制序列图 Sequence Diagram</h3>
+<pre><code class="language-seq" data-lang="seq">Andrew-&gt;China: Says Hello
+Note right of China: China thinks\nabout it
+China--&gt;Andrew: How are you?
+Andrew-&gt;&gt;China: I am good thanks!
+</code></pre><h3 id="end">End</h3>
+]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/categories/markdown/">Markdown</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/tags/markdown/">Markdown</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+    </channel>
+</rss>
