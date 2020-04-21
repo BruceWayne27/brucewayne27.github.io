@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">BruceWayne27</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2020-04-20T11:57:44+08:00</updated>
+    <updated>2020-04-21T16:09:28+08:00</updated>
     <id>https://brucewayne27.github.io/</id>
     <link rel="alternate" type="text/html" href="https://brucewayne27.github.io/" />
     <link rel="self" type="application/atom+xml" href="https://brucewayne27.github.io/atom.xml" />
@@ -17,11 +17,11 @@
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.68.3">Hugo</generator>
         <entry>
-            <title type="text">2.1线性表的定义和基本操作</title>
-            <link rel="alternate" type="text/html" href="https://brucewayne27.github.io/post/2.1%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" />
-            <id>https://brucewayne27.github.io/post/2.1%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
-            <updated>2020-04-18T23:13:26+08:00</updated>
-            <published>2020-04-18T19:57:40+08:00</published>
+            <title type="text">2.2线性表的顺序表示</title>
+            <link rel="alternate" type="text/html" href="https://brucewayne27.github.io/post/2.2%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%A4%BA/" />
+            <id>https://brucewayne27.github.io/post/2.2%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%A4%BA/</id>
+            <updated>2020-04-21T16:08:45+08:00</updated>
+            <published>2020-04-21T15:55:34+08:00</published>
             <author>
                     <name>BruceWayne27</name>
                     <uri>#</uri>
@@ -29,19 +29,9 @@
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     
-    <summary type="html"><![CDATA[2.1线性表 2.1.1线性表的定义: 线性表是具有 相同数据类型 的n(n&gt;=0)个……]]></summary>
+    <summary type="html"><![CDATA[2.2线性表的顺序表示 2.2.1顺序表的定义: 线性表的顺序存储又称为 顺序表 。用一组地……]]></summary>
             
-                <content type="html"><![CDATA[<h4 id="21线性表">2.1线性表</h4>
-<h5 id="211线性表的定义">2.1.1线性表的定义:</h5>
-<p>    线性表是具有 <em><strong>相同数据类型</strong></em> 的n(n&gt;=0)个数据元素的 <em><strong>有限序列</strong></em> ，其中n为表长，当n=0时线性表是一个空表。若用L命名线性表，则其一般表示为</p>
-<pre><code>L=(a1,a2,a3,···,ai,ai+1,···,an)
-</code></pre>
-<h5 id="212线性表的特点">2.1.2线性表的特点:</h5>
-<pre><code>	1.元素个数有限
-	2.元素具有逻辑上的顺序性,元素有先后次序
-	3.元素都是数据元素,每个元素都是单个元素
-	4.元素的数据类型都相同,即每个元素的存储空间相同
-</code></pre><h4 id="22线性表的顺序表示">2.2线性表的顺序表示</h4>
+                <content type="html"><![CDATA[<h4 id="22线性表的顺序表示">2.2线性表的顺序表示</h4>
 <h5 id="221顺序表的定义">2.2.1顺序表的定义:</h5>
 <p>    线性表的顺序存储又称为 <em><strong>顺序表</strong></em> 。用一组地址连续的存储单元依次存储线性表中的数据元素，<em><strong>使相邻的元素逻辑和物理位置也相邻</strong></em> 。</p>
 <pre><code>线性表的元素位序从1开始,而数组真实下标从0开始
@@ -168,7 +158,8 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h6 id="综合案例">综合案例：</h6>
+</div><hr>
+<h6 id="综合案例">综合案例：</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -324,6 +315,186 @@
 </code></pre></td></tr></table>
 </div>
 </div>]]></content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" term="数据结构" label="数据结构" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/categories/%E7%BA%BF%E6%80%A7%E8%A1%A8/" term="线性表" label="线性表" />
+                            
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" term="数据结构" label="数据结构" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8%E9%A1%BA%E5%BA%8F/" term="线性表顺序" label="线性表顺序" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">2.3线性表的链式表示</title>
+            <link rel="alternate" type="text/html" href="https://brucewayne27.github.io/post/2.3%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E8%A1%A8%E7%A4%BA/" />
+            <id>https://brucewayne27.github.io/post/2.3%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E8%A1%A8%E7%A4%BA/</id>
+            <updated>2020-04-21T16:08:36+08:00</updated>
+            <published>2020-04-21T14:27:31+08:00</published>
+            <author>
+                    <name>BruceWayne27</name>
+                    <uri>#</uri>
+                    <email>847243182@qq.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
+    
+    <summary type="html"><![CDATA[2.3线性表的链式表示 2.3.1单链表的定义 通过一组任意的存储单元来存储线性表中的数……]]></summary>
+            
+                <content type="html"><![CDATA[<h4 id="23线性表的链式表示">2.3线性表的链式表示</h4>
+<h5 id="231单链表的定义">2.3.1单链表的定义</h5>
+<p>    通过一组任意的存储单元来存储线性表中的数据元素。不要求逻辑上相邻的元素在物理位置也相邻。修改表只需要修改指针，但也失去了顺序表可随机存储的优点。</p>
+<h6 id="单链表的定义">单链表的定义：</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">LNode</span><span class="p">{</span>      <span class="c1">//定义单链表结点类型
+</span><span class="c1"></span>    <span class="n">ElemType</span> <span class="n">data</span><span class="p">;</span>        <span class="c1">//数据域
+</span><span class="c1"></span>	<span class="k">struct</span> <span class="nc">LNode</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>  <span class="c1">//指针域
+</span><span class="c1"></span><span class="p">}</span><span class="n">LNode</span><span class="p">,</span><span class="o">*</span><span class="n">LinkList</span><span class="p">;</span>           
+</code></pre></td></tr></table>
+</div>
+</div><p>    利用单链表可以解决顺序表需要大量连续存储的缺点，但单链表附加指针域，也存在浪费存储空间的缺点。单链表不能直接找到表中某个特定的结点，需要从头开始遍历。</p>
+<h5 id="232单链表上基本操作">2.3.2单链表上基本操作</h5>
+<h6 id="头插法">头插法：</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">LinkList</span> <span class="nf">List_HeadInsert</span><span class="p">(</span><span class="n">LinkList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">){</span>      <span class="c1">//逆向建立链表
+</span><span class="c1"></span>    <span class="n">LNode</span> <span class="o">*</span><span class="n">s</span><span class="p">;</span><span class="kt">int</span> <span class="n">x</span><span class="p">;</span>                        <span class="c1">//
+</span><span class="c1"></span>    <span class="n">L</span><span class="o">=</span><span class="p">(</span><span class="n">LinkList</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">LNode</span><span class="p">));</span>    <span class="c1">//创建头节点
+</span><span class="c1"></span>    <span class="n">L</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>                        <span class="c1">//初始化为空链表
+</span><span class="c1"></span>    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">x</span><span class="p">;</span>                             <span class="c1">//输入结点的值
+</span><span class="c1"></span>    <span class="k">while</span><span class="p">(</span><span class="n">x</span><span class="o">!=</span><span class="mi">9999</span><span class="p">){</span>                    <span class="c1">//输入9999结束
+</span><span class="c1"></span>    <span class="n">s</span><span class="o">=</span><span class="p">(</span><span class="n">LNode</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">LNode</span><span class="p">));</span>  <span class="c1">//创建新节点
+</span><span class="c1"></span>    <span class="n">s</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>                       <span class="c1">//
+</span><span class="c1"></span>    <span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">L</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>                <span class="c1">//将新节点插入表中
+</span><span class="c1"></span>    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">x</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">L</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" term="数据结构" label="数据结构" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/categories/%E7%BA%BF%E6%80%A7%E8%A1%A8/" term="线性表" label="线性表" />
+                            
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" term="数据结构" label="数据结构" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8%E9%93%BE%E5%BC%8F/" term="线性表链式" label="线性表链式" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">2.1线性表的定义和基本操作</title>
+            <link rel="alternate" type="text/html" href="https://brucewayne27.github.io/post/2.1%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" />
+            <id>https://brucewayne27.github.io/post/2.1%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
+            <updated>2020-04-21T15:57:58+08:00</updated>
+            <published>2020-04-18T19:57:40+08:00</published>
+            <author>
+                    <name>BruceWayne27</name>
+                    <uri>#</uri>
+                    <email>847243182@qq.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
+    
+    <summary type="html"><![CDATA[2.1线性表 2.1.1线性表的定义: 线性表是具有 相同数据类型 的n(n&gt;=0)个……]]></summary>
+            
+                <content type="html"><![CDATA[<h4 id="21线性表">2.1线性表</h4>
+<h5 id="211线性表的定义">2.1.1线性表的定义:</h5>
+<p>    线性表是具有 <em><strong>相同数据类型</strong></em> 的n(n&gt;=0)个数据元素的 <em><strong>有限序列</strong></em> ，其中n为表长，当n=0时线性表是一个空表。若用L命名线性表，则其一般表示为</p>
+<pre><code>L=(a1,a2,a3,···,ai,ai+1,···,an)
+</code></pre>
+<hr>
+<h5 id="212线性表的特点">2.1.2线性表的特点:</h5>
+<pre><code>	1.元素个数有限
+	2.元素具有逻辑上的顺序性,元素有先后次序
+	3.元素都是数据元素,每个元素都是单个元素
+	4.元素的数据类型都相同,即每个元素的存储空间相同
+</code></pre>]]></content>
             
             
             
