@@ -23,10 +23,73 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Tue, 21 Apr 2020 16:12:28 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 21 Apr 2020 16:41:03 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://brucewayne27.github.io/rss.xml" />
         
+        
+            <item>
+                <title>2.1线性表的定义和基本操作</title>
+                <link>https://brucewayne27.github.io/post/2.1%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</link>
+                <guid isPermaLink="true">https://brucewayne27.github.io/post/2.1%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</guid>
+                <pubDate>Sat, 18 Apr 2020 19:57:40 +0800</pubDate>
+                
+                    <author>847243182@qq.com (BruceWayne27)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description><![CDATA[<h4 id="21线性表">2.1线性表</h4>
+<h5 id="211线性表的定义">2.1.1线性表的定义:</h5>
+<p>    线性表是具有 <em><strong>相同数据类型</strong></em> 的n(n&gt;=0)个数据元素的 <em><strong>有限序列</strong></em> ，其中n为表长，当n=0时线性表是一个空表。若用L命名线性表，则其一般表示为</p>
+<pre><code>L=(a1,a2,a3,···,ai,ai+1,···,an)
+</code></pre>
+<hr>
+<h5 id="212线性表的特点">2.1.2线性表的特点:</h5>
+<pre><code>	1.元素个数有限
+	2.元素具有逻辑上的顺序性,元素有先后次序
+	3.元素都是数据元素,每个元素都是单个元素
+	4.元素的数据类型都相同,即每个元素的存储空间相同
+</code></pre>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/categories/%E7%BA%BF%E6%80%A7%E8%A1%A8/">线性表</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://brucewayne27.github.io/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8%E5%AE%9A%E4%B9%89/">线性表定义</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>2.2线性表的顺序表示</title>
@@ -463,69 +526,6 @@
                                 
                                 
                                     <category domain="https://brucewayne27.github.io/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8%E9%93%BE%E5%BC%8F/">线性表链式</category>
-                                
-                            
-                        
-                    
-                
-            </item>
-        
-            <item>
-                <title>2.1线性表的定义和基本操作</title>
-                <link>https://brucewayne27.github.io/post/2.1%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</link>
-                <guid isPermaLink="true">https://brucewayne27.github.io/post/2.1%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</guid>
-                <pubDate>Sat, 18 Apr 2020 19:57:40 +0800</pubDate>
-                
-                    <author>847243182@qq.com (BruceWayne27)</author>
-                
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
-                
-                    <description><![CDATA[<h4 id="21线性表">2.1线性表</h4>
-<h5 id="211线性表的定义">2.1.1线性表的定义:</h5>
-<p>    线性表是具有 <em><strong>相同数据类型</strong></em> 的n(n&gt;=0)个数据元素的 <em><strong>有限序列</strong></em> ，其中n为表长，当n=0时线性表是一个空表。若用L命名线性表，则其一般表示为</p>
-<pre><code>L=(a1,a2,a3,···,ai,ai+1,···,an)
-</code></pre>
-<hr>
-<h5 id="212线性表的特点">2.1.2线性表的特点:</h5>
-<pre><code>	1.元素个数有限
-	2.元素具有逻辑上的顺序性,元素有先后次序
-	3.元素都是数据元素,每个元素都是单个元素
-	4.元素的数据类型都相同,即每个元素的存储空间相同
-</code></pre>]]></description>
-                
-                
-                
-                
-                
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://brucewayne27.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
-                                
-                            
-                                
-                                
-                                
-                                    <category domain="https://brucewayne27.github.io/categories/%E7%BA%BF%E6%80%A7%E8%A1%A8/">线性表</category>
-                                
-                            
-                        
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://brucewayne27.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
-                                
-                            
-                                
-                                
-                                
-                                    <category domain="https://brucewayne27.github.io/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8%E5%AE%9A%E4%B9%89/">线性表定义</category>
                                 
                             
                         
