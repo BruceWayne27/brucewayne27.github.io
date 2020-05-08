@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Fri, 08 May 2020 23:06:06 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 08 May 2020 23:24:14 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://brucewayne27.github.io/rss.xml" />
         
@@ -815,11 +815,11 @@
 <span class="p">}</span>
 <span class="n">LinkList</span> <span class="nf">ListHeadInsert</span><span class="p">(</span><span class="n">LinkList</span><span class="o">&amp;</span> <span class="n">L</span><span class="p">)</span> <span class="p">{</span>          <span class="c1">//逆向建立链表
 </span><span class="c1"></span>    <span class="n">LNode</span><span class="o">*</span> <span class="n">s</span><span class="p">;</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>                           <span class="c1">//
-</span><span class="c1"></span>    <span class="n">L</span> <span class="o">=</span> <span class="p">(</span><span class="n">LinkList</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">LNode</span><span class="p">));</span>      <span class="c1">//创建头节点
+</span><span class="c1"></span>    <span class="n">L</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LNode</span><span class="p">;</span>                            <span class="c1">//创建头节点
 </span><span class="c1"></span>    <span class="n">L</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>                          <span class="c1">//初始化为空链表
 </span><span class="c1"></span>    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>                               <span class="c1">//输入结点的值
-</span><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="mi">9999</span><span class="p">)</span> <span class="p">{</span>                    <span class="c1">//输入9999结束
-</span><span class="c1"></span>        <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">LNode</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">LNode</span><span class="p">));</span><span class="c1">//创建新节点
+</span><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>                      <span class="c1">//输入-2结束
+</span><span class="c1"></span>        <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LNode</span><span class="p">;</span>                    <span class="c1">//创建新节点
 </span><span class="c1"></span>        <span class="n">s</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>                     <span class="c1">//
 </span><span class="c1"></span>        <span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">L</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>              <span class="c1">//将新节点插入表中
 </span><span class="c1"></span>        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
@@ -879,6 +879,32 @@
     <span class="p">}</span>		         
     <span class="k">return</span> <span class="n">p</span><span class="p">;</span><span class="c1">//找到后返回该节点的指针，否则返回NULL
 </span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="注意c和c语言动态申请的语法区别">注意c++和c语言动态申请的语法区别</h5>
+<pre><code>dev运行时c语言的写法报错了，但是同样的代码VS运行没有报错，所以为了使得运行不出问题，
+综合案例统一使用了new LNode方法。
+</code></pre>
+<p>C语言</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">L</span><span class="o">=</span><span class="p">(</span><span class="n">LinkList</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">LNode</span><span class="p">));</span>
+<span class="n">s</span><span class="o">=</span><span class="p">(</span><span class="n">LNode</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">LNode</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>C++</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">L</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LNode</span><span class="p">;</span>  
+<span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LNode</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div>]]></description>
