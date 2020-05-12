@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Fri, 08 May 2020 23:24:14 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 12 May 2020 16:30:57 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://brucewayne27.github.io/rss.xml" />
         
@@ -38,13 +38,13 @@
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description><![CDATA[<h4 id="21线性表">2.1线性表</h4>
-<h5 id="211线性表的定义">2.1.1线性表的定义:</h5>
-<p>    线性表是具有 <em><strong>相同数据类型</strong></em> 的n(n&gt;=0)个数据元素的 <em><strong>有限序列</strong></em> ，其中n为表长，当n=0时线性表是一个空表。若用L命名线性表，则其一般表示为</p>
+                    <description><![CDATA[<h4 id="21-线性表">2.1 线性表</h4>
+<h5 id="211-线性表的定义">2.1.1 线性表的定义:</h5>
+<p>  线性表是具有 <em><strong>相同数据类型</strong></em> 的n(n&gt;=0)个数据元素的 <em><strong>有限序列</strong></em> ，其中n为表长，当n=0时线性表是一个空表。若用L命名线性表，则其一般表示为</p>
 <pre><code>L=(a1,a2,a3,···,ai,ai+1,···,an)
 </code></pre>
 <hr>
-<h5 id="212线性表的特点">2.1.2线性表的特点:</h5>
+<h5 id="212-线性表的特点">2.1.2 线性表的特点:</h5>
 <pre><code>	1.元素个数有限
 	2.元素具有逻辑上的顺序性,元素有先后次序
 	3.元素都是数据元素,每个元素都是单个元素
@@ -101,9 +101,9 @@
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description><![CDATA[<h4 id="22线性表的顺序表示">2.2线性表的顺序表示</h4>
-<h5 id="221顺序表的定义">2.2.1顺序表的定义:</h5>
-<p>    线性表的顺序存储又称为 <em><strong>顺序表</strong></em> 。用一组地址连续的存储单元依次存储线性表中的数据元素，<em><strong>使相邻的元素逻辑和物理位置也相邻</strong></em> 。</p>
+                    <description><![CDATA[<h4 id="22-线性表的顺序表示">2.2 线性表的顺序表示</h4>
+<h5 id="221-顺序表的定义">2.2.1 顺序表的定义:</h5>
+<p>  线性表的顺序存储又称为 <em><strong>顺序表</strong></em> 。用一组地址连续的存储单元依次存储线性表中的数据元素，<em><strong>使相邻的元素逻辑和物理位置也相邻</strong></em> 。</p>
 <pre><code>线性表的元素位序从1开始,而数组真实下标从0开始
 </code></pre><h6 id="1线性表的顺序存储">1.线性表的顺序存储:</h6>
 <div class="highlight"><div class="chroma">
@@ -436,9 +436,9 @@
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description><![CDATA[<h4 id="23线性表的链式表示">2.3线性表的链式表示</h4>
-<h5 id="231单链表的定义">2.3.1单链表的定义</h5>
-<p>    通过一组任意的存储单元来存储线性表中的数据元素。不要求逻辑上相邻的元素在物理位置也相邻。修改表只需要修改指针，但也失去了顺序表可随机存储的优点。</p>
+                    <description><![CDATA[<h4 id="23-线性表的链式表示">2.3 线性表的链式表示</h4>
+<h5 id="231-单链表的定义">2.3.1 单链表的定义</h5>
+<p>  通过一组任意的存储单元来存储线性表中的数据元素。不要求逻辑上相邻的元素在物理位置也相邻。修改表只需要修改指针，但也失去了顺序表可随机存储的优点。</p>
 <h6 id="单链表的定义">单链表的定义：</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -455,7 +455,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>    利用单链表可以解决顺序表需要大量连续存储的缺点，但单链表附加指针域，也存在浪费存储空间的缺点。单链表不能直接找到表中某个特定的结点，需要从头开始遍历。</p>
-<h5 id="232单链表上基本操作">2.3.2单链表上基本操作</h5>
+<h5 id="232-单链表上基本操作">2.3.2 单链表上基本操作</h5>
 <h6 id="1头插法">1.头插法：</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -907,7 +907,385 @@
 <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LNode</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description>
+</div><hr>
+<h5 id="233-双链表">2.3.3 双链表</h5>
+<p>  双链表节点中有两个指针prior和next，分别指向其前驱结点和后继结点。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">DNode</span><span class="p">{</span>            <span class="c1">//定义双链表结点类型
+</span><span class="c1"></span>	<span class="n">ElemType</span> <span class="n">data</span><span class="p">;</span>              <span class="c1">//数据域
+</span><span class="c1"></span>	<span class="k">struct</span> <span class="nc">DNode</span> <span class="o">*</span><span class="n">prior</span><span class="p">,</span><span class="o">*</span><span class="n">next</span><span class="p">;</span> <span class="c1">//前驱和后继指针
+</span><span class="c1"></span><span class="p">}</span><span class="n">DNode</span><span class="p">,</span><span class="o">*</span><span class="n">DLinkList</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="1双链表插入操作">1.双链表插入操作</h6>
+<p>    在双链表中p所指向结点之后插入结点 *s。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>  <span class="c1">//将结点*s插入到结点*p之后
+</span><span class="c1"></span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">prior</span><span class="o">=</span><span class="n">s</span><span class="p">;</span>
+<span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">s</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="2双链表删除操作">2.双链表删除操作</h6>
+<p>    删除双链表中结点<em>p的后继结点</em>q。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">prior</span><span class="o">=</span><span class="n">p</span><span class="p">;</span>
+<span class="n">free</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>          <span class="c1">//c++是delete q
+</span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h5 id="综合案例-1">综合案例</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">int</span> <span class="n">Elemtype</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">DNode</span> <span class="p">{</span>
+    <span class="n">Elemtype</span> <span class="n">data</span><span class="p">;</span>        <span class="c1">//定义双链表的节点类型 
+</span><span class="c1"></span>    <span class="n">DNode</span><span class="o">*</span> <span class="n">prior</span><span class="p">,</span> <span class="o">*</span> <span class="n">next</span><span class="p">;</span><span class="c1">//数据域
+</span><span class="c1"></span><span class="p">}</span><span class="o">*</span><span class="n">DLinkList</span><span class="p">;</span>            <span class="c1">//前驱和后继指针
+</span><span class="c1"></span><span class="n">DLinkList</span> <span class="nf">HeadInsert</span><span class="p">(</span><span class="n">DLinkList</span> <span class="n">DL</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">ShowList</span><span class="p">(</span><span class="n">DLinkList</span> <span class="n">DL</span><span class="p">);</span>
+<span class="n">DLinkList</span> <span class="nf">TailInsert</span><span class="p">(</span><span class="n">DLinkList</span> <span class="n">DL</span><span class="p">);</span>
+<span class="n">DLinkList</span> <span class="nf">InsertLocate</span><span class="p">(</span><span class="n">DLinkList</span> <span class="n">DL</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">Elemtype</span> <span class="n">e</span><span class="p">,</span><span class="kt">int</span> <span class="n">len</span><span class="p">);</span>
+<span class="n">DLinkList</span> <span class="nf">DeleteLocate</span><span class="p">(</span><span class="n">DLinkList</span> <span class="n">DL</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">DLinkList</span> <span class="n">DL</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span> <span class="n">Elemtype</span> <span class="n">e</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;头插法输入-2结束:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">DL</span> <span class="o">=</span> <span class="n">HeadInsert</span><span class="p">(</span><span class="n">DL</span><span class="p">);</span>
+    <span class="cm">/*cout &lt;&lt; &#34;尾插法输入-1结束&#34; &lt;&lt; endl;
+</span><span class="cm">    DL = TailInsert(DL);*/</span>
+    <span class="n">len</span><span class="o">=</span><span class="n">ShowList</span><span class="p">(</span><span class="n">DL</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;向后插入，输入位置和值:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">e</span><span class="p">;</span>
+    <span class="n">DL</span> <span class="o">=</span> <span class="n">InsertLocate</span><span class="p">(</span><span class="n">DL</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span><span class="n">len</span><span class="p">);</span>
+    <span class="n">len</span><span class="o">=</span><span class="n">ShowList</span><span class="p">(</span><span class="n">DL</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;删除，输入位置:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">;</span>
+    <span class="n">DL</span> <span class="o">=</span> <span class="n">DeleteLocate</span><span class="p">(</span><span class="n">DL</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+    <span class="n">len</span> <span class="o">=</span> <span class="n">ShowList</span><span class="p">(</span><span class="n">DL</span><span class="p">);</span>
+    <span class="k">delete</span> <span class="n">DL</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">DLinkList</span> <span class="nf">HeadInsert</span><span class="p">(</span><span class="n">DLinkList</span> <span class="n">DL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">DL</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DNode</span><span class="p">;</span>
+    <span class="n">DNode</span><span class="o">*</span> <span class="n">s</span><span class="p">;</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">DL</span><span class="o">-&gt;</span><span class="n">prior</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">DL</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DNode</span><span class="p">;</span>
+        <span class="n">s</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">DL</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">DL</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">s</span><span class="o">-&gt;</span><span class="n">prior</span> <span class="o">=</span> <span class="n">DL</span><span class="p">;</span>
+            <span class="n">DL</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">DL</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+            <span class="n">DL</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">prior</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+            <span class="n">s</span><span class="o">-&gt;</span><span class="n">prior</span> <span class="o">=</span> <span class="n">DL</span><span class="p">;</span>
+            <span class="n">DL</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">DL</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">ShowList</span><span class="p">(</span><span class="n">DLinkList</span> <span class="n">DL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">DNode</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">DL</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span><span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;===表长度==&gt;&#34;</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">DLinkList</span> <span class="nf">TailInsert</span><span class="p">(</span><span class="n">DLinkList</span> <span class="n">DL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">DL</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DNode</span><span class="p">;</span>
+    <span class="n">DNode</span><span class="o">*</span> <span class="n">r</span> <span class="o">=</span> <span class="n">DL</span><span class="p">,</span> <span class="o">*</span> <span class="n">s</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">DL</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">DL</span><span class="o">-&gt;</span><span class="n">prior</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DNode</span><span class="p">;</span>
+        <span class="n">s</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">r</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+        <span class="n">s</span><span class="o">-&gt;</span><span class="n">prior</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">r</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">DL</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">DLinkList</span> <span class="nf">InsertLocate</span><span class="p">(</span><span class="n">DLinkList</span> <span class="n">DL</span><span class="p">,</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">Elemtype</span> <span class="n">e</span><span class="p">,</span><span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">0</span> <span class="o">||</span> <span class="n">i</span><span class="o">&gt;</span><span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;位置不合法!!!&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">DL</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">DNode</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">DL</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">,</span><span class="o">*</span><span class="n">s</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">p</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DNode</span><span class="p">;</span>
+    <span class="n">s</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+    <span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+    <span class="n">s</span><span class="o">-&gt;</span><span class="n">prior</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">prior</span><span class="p">;</span>      
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">prior</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">prior</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">DL</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">DLinkList</span> <span class="nf">DeleteLocate</span><span class="p">(</span><span class="n">DLinkList</span> <span class="n">DL</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">DNode</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">DL</span><span class="p">;</span>
+    <span class="n">DNode</span><span class="o">*</span> <span class="n">s</span><span class="p">;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DNode</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">0</span> <span class="o">||</span> <span class="n">i</span><span class="o">&gt;</span><span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;不合法！！！&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">DL</span><span class="p">;</span>
+    <span class="p">}</span>	
+    <span class="k">while</span> <span class="p">(</span><span class="n">p</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="cm">/*cout &lt;&lt; &#34;位置&#34;&lt;&lt;j &lt;&lt; &#34;==》&#34; &lt;&lt; p-&gt;data&lt;&lt;endl;*/</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">//普通结点
+</span><span class="c1"></span>        <span class="n">s</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">prior</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+        <span class="k">delete</span> <span class="n">s</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>  <span class="c1">//尾结点
+</span><span class="c1"></span>        <span class="n">s</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="k">delete</span> <span class="n">s</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">DL</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="234-循环链表">2.3.4 循环链表</h5>
+<h6 id="1循环单链表">1.循环单链表</h6>
+<p>  循环单链表和单链表的区别在于，表中最后一个结点的指针不是NULL，而改为指向头节点，
+从而整个链表形成一个环。<br>
+  循环单链表可以从表中的任意一个结点开始遍历整个链表。有时对单链表常做的操作是在表头
+和表尾进行的，此时对单链表不设头指针而设尾指针，从而使得操作效率更高。其原因是，若设的头指针，对表尾进行操作需要
+O(n)的时间复杂度，而若设的是尾指针r，r-&gt;next即为头指针，对于表头域表尾进行操作都值需要O(1)的时间复杂度。</p>
+<h6 id="2循环双链表">2.循环双链表</h6>
+<p>  循环双链表中，头节点的prior指针还要指向表尾结点。<br>
+  在循环双链表DL中，某结点*p为尾结点时。p-&gt;next==DL；当循环双链表为空时，
+起头节点的prior和next都等于DL。</p>
+<h5 id="235-静态链表">2.3.5 静态链表</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#define NaxSize 50   </span><span class="c1">//静态链表的最大长度
+</span><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>     <span class="c1">//静态链表结构类型的定义
+</span><span class="c1"></span>    <span class="n">ElemType</span> <span class="n">data</span><span class="p">;</span> <span class="c1">//存储数据元素
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">next</span><span class="p">;</span>     <span class="c1">//下一个元素的数组下标
+</span><span class="c1"></span><span class="p">}</span><span class="n">SLinkList</span><span class="p">[</span><span class="n">MaxSize</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>适用于一些不支持指针的高级语言(如Basic)。</p>
+<h5 id="236-顺序表和链表的比较">2.3.6 顺序表和链表的比较</h5>
+<h6 id="1读取读写方式">1.读取（读写）方式</h6>
+<p>  顺序表可以顺序存取，也可以随机存取，链表之恶能从表头顺序存取元素。</p>
+<h6 id="2逻辑结构和物理结构">2.逻辑结构和物理结构</h6>
+<p>  顺序存储时，逻辑上相邻的元素，对应的物理位置也相邻。采用链式存储时，逻辑上相邻
+的元素，物理存储位置不一定相邻，对应逻辑关系是通过指针链接表示的。</p>
+<h6 id="3查找插入和删除操作">3.查找、插入和删除操作</h6>
+<p>  对于按值查找，顺序表无序时，两者时间复杂度均为O(n)；顺序表有序时，可采用折半查找，此时
+的时间复杂度为O(log<sub>2</sub>n)。<br>
+  对于按序号查找，顺序表支持随机访问，时间复杂度O(1)，而链表的平均时间复杂度为O(n)。
+顺序的插入、删除操作平均需要移动半个表长的元素。链表的插入、删除操作，只需要修改相关指针即可。
+由于链表的每个结点都带有指针域，故而存储密度不够大。</p>
+<h6 id="4空间分配">4.空间分配</h6>
+<p>  顺序存储在静态存储分配情形下，一旦存储空间装满就不能扩充，若再加入新元素，则会出
+现内存溢出，因此需要预先分配足够大的存储空间。预先分配过大，可能会导致顺序表后部大量
+闲置；预先分配过小，又会造成溢出。动态存储分配虽然存储空间可以扩充，但需要移动大量元
+素导致操作效率降低，而且若内存中没有更大块的连续存储空间，则会导致分配失败。链式存
+储的结点空间只在需要时申请分配，只要内存有空间就可以分配，操作灵活、高效。</p>
+<h6 id="如何选取存储结构">如何选取存储结构</h6>
+<p>1.基于存储的考虑<br>
+  难以估计线性表的长度或存储规模时，不宜采用顺序表；链表不用事先估计存储规模，但链
+表的存储密度较低，显然链式存储结构的存储密度是小于1的。</p>
+<p>2.基于运算的考虑<br>
+  在顺序表中按序号访问ai的时间复杂度为O(1)，而链表中按序号访问的时间复杂度为(n)，
+因此若经常做的运算是按序号访问数据元素，则显然顺序表优于链表。<br>
+  在顺序表中进行插入、删除操作时，平均移动表中一半的元素，当数据元素的信息量较大且
+表较长时，这一点是不应忽视的；在链表中进行插入、删除操作时，虽然也要找插入位置，但操
+作主要是比较操作，从这个角度考虑显然后者优于前者。</p>
+<p>3.基于环境的考虑<br>
+  顺序表容易实现；链表的操作是基于指针的，相对来说前者实现简单。</p>
+<p>总结：<br>
+  通常较稳定选择顺序存储，而频繁进行插入、删除操作的线性表（即动态性强）选择链式存储。</p>
+]]></description>
                 
                 
                 
