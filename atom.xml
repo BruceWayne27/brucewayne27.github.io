@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">BruceWayne27</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2020-06-07T20:36:57+08:00</updated>
+    <updated>2020-06-18T22:41:10+08:00</updated>
     <id>https://brucewayne27.github.io/</id>
     <link rel="alternate" type="text/html" href="https://brucewayne27.github.io/" />
     <link rel="self" type="application/atom+xml" href="https://brucewayne27.github.io/atom.xml" />
@@ -3032,7 +3032,7 @@ O(n)的时间复杂度，而若设的是尾指针r，r-&gt;next即为头指针�
             <title type="text">3.1栈</title>
             <link rel="alternate" type="text/html" href="https://brucewayne27.github.io/post/3.1%E6%A0%88/" />
             <id>https://brucewayne27.github.io/post/3.1%E6%A0%88/</id>
-            <updated>2020-06-07T20:15:23+08:00</updated>
+            <updated>2020-06-18T22:37:57+08:00</updated>
             <published>2020-06-05T12:53:06+08:00</published>
             <author>
                     <name>BruceWayne27</name>
@@ -3166,6 +3166,7 @@ O(n)的时间复杂度，而若设的是尾指针r，r-&gt;next即为头指针�
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">bool</span> <span class="nf">Pop</span><span class="p">(</span><span class="n">SqStack</span><span class="o">&amp;</span> <span class="n">S</span><span class="p">,</span> <span class="n">Elemtype</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
@@ -3175,7 +3176,8 @@ O(n)的时间复杂度，而若设的是尾指针r，r-&gt;next即为头指针�
 </span><span class="c1"></span>	<span class="n">x</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="o">--</span><span class="p">];</span><span class="c1">//出栈 ，指针-1
 </span><span class="c1"></span>	<span class="c1">//cout &lt;&lt; &#34;x:&#34; &lt;&lt; x &lt;&lt; &#34; &#34; &lt;&lt; &#34;S:&#34; &lt;&lt; S.data[S.top] &lt;&lt; &#34; &#34;;
 </span><span class="c1"></span>		
-	
+	<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><h6 id="5读栈顶元素">（5）读栈顶元素</h6>
@@ -3410,6 +3412,412 @@ O(n)的时间复杂度，而若设的是尾指针r，r-&gt;next即为头指针�
                             
                             
                                 <category scheme="https://brucewayne27.github.io/tags/%E6%A0%88/" term="栈" label="栈" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">3.2队列</title>
+            <link rel="alternate" type="text/html" href="https://brucewayne27.github.io/post/3.2%E9%98%9F%E5%88%97/" />
+            <id>https://brucewayne27.github.io/post/3.2%E9%98%9F%E5%88%97/</id>
+            <updated>2020-06-18T22:39:37+08:00</updated>
+            <published>2020-06-18T20:42:10+08:00</published>
+            <author>
+                    <name>BruceWayne27</name>
+                    <uri>#</uri>
+                    <email>847243182@qq.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
+    
+    <summary type="html"><![CDATA[3.2队列 3.2.1队列的基本概念 1.队列的定义 队列简称队，也是一种操作受限制的线性……]]></summary>
+            
+                <content type="html"><![CDATA[<h3 id="32队列">3.2队列</h3>
+<h4 id="321队列的基本概念">3.2.1队列的基本概念</h4>
+<h5 id="1队列的定义">1.队列的定义</h5>
+<p>  队列简称队，也是一种操作受限制的<em><strong>线性表</strong></em>。<br>
+  只允许在表的一端进行插入，而在表的另一端进行删除。<br>
+  栈的操作是<em><strong>先进先出</strong></em></p>
+<h5 id="2栈的基本操作">2.栈的基本操作</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">InitQueue</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Q</span><span class="p">)</span><span class="o">:</span><span class="err">初始化队列，构造一个空队列</span><span class="n">Q</span><span class="err">。</span>
+<span class="n">QueueEmpty</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="o">:</span><span class="err">判队列空，若队列</span><span class="n">Q为空返回</span> <span class="nb">true</span><span class="p">,</span><span class="err">否则返回</span><span class="nb">false</span><span class="err">。</span>
+<span class="n">EnQueue</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Q</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">:</span><span class="err">入队，若队列</span><span class="n">Q未满</span><span class="err">，将</span><span class="n">x加入</span><span class="err">，使之成为新的队尾。</span>
+<span class="n">DeQueue</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Q</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span><span class="o">:</span><span class="err">出队，若队列</span><span class="n">Q非空</span><span class="p">,</span><span class="err">则将队头元素</span><span class="p">,</span><span class="err">并用</span><span class="n">x返回</span><span class="err">。</span>
+<span class="n">GetHead</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span><span class="o">:</span><span class="err">读栈头元素，若队列</span><span class="n">Q非空</span><span class="err">，则将对头元素赋值给</span><span class="n">x</span><span class="err">。</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="322队列的顺序存储结构">3.2.2队列的顺序存储结构</h4>
+<h5 id="1队列的顺序存储">1.队列的顺序存储</h5>
+<p>  队列的顺序实现是指分配一块连续的存储单元存放队列中的元素，并附设两个指针。</p>
+<p>顺序栈:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#define MaxSize 50   </span><span class="c1">//定义栈中元素的最大个数
+</span><span class="c1"></span><span class="k">struct</span> <span class="nc">SqQueue</span> <span class="p">{</span>			
+	<span class="n">Elemtype</span> <span class="n">data</span><span class="p">[</span><span class="n">MaxSize</span><span class="p">];</span><span class="c1">//存放队列元素
+</span><span class="c1"></span>	<span class="kt">int</span> <span class="n">font</span><span class="p">,</span><span class="n">rear</span><span class="p">;</span>		  <span class="c1">//栈头指针和栈尾指针
+</span><span class="c1"></span><span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>初始状态(队空条件)：Q.font=Q.rear==0
+进队操作：队不满时，先送值到队尾元素，再将队尾指针+1。<br>
+出队操作：队不空时，先取对头元素值，再将对头指针+1。</p>
+<h5 id="2循环队列">2.循环队列</h5>
+<p>  将顺序队列臆造为一个环状的空间，即把队存储队列元素的表从逻辑上视为一个环，称为循环队列。
+当队首指针Q.front==MaxSize-1后,在前进一个位置就自动到0，这还可以利用除法取余运算(%)来实现。</p>
+<p>初始时：Q.front=Q.rear=0<br>
+队首指针进1：Q.front=(Q.front+1)%MaxSize<br>
+队尾指针进1：Q.rear=(Q.rear+1)%MaxSize<br>
+队列长度：(Q.rear+MaxSize-Q.front)%MaxSize<br>
+队空：Q.front==Q.rear</p>
+<p>为了区分队空和队满的三种方式<br>
+(1)牺牲一个单元来区分队空和队满，入队时少用一个队列单元。</p>
+<pre><code>队满条件：(Q.rear+1)%MaxSize==Q.front  
+队空条件仍：Q.front==Q.rear  
+队列中元素个数：(Q.rear-Q.front+MaxSize)%MaxSize  
+</code></pre>
+<p>(2)类型中增设表示元素个数的数据成员。</p>
+<pre><code>队空条件：Q.size==0
+队满条件：Q.size==MaxSize
+这两种情况都有Q.front==Q.rear
+</code></pre>
+<p>(3)类型中增设tag数据成员，以区分是队满还是队空。</p>
+<pre><code>tag等于0时，若因删除导致 Q.front==Q.rear ，则为队空；tag等于1时，若因插入导致
+Q.front==Q.rear则队满。
+</code></pre>
+<h5 id="3循环队列的操作">3.循环队列的操作</h5>
+<h6 id="1初始化">（1）初始化</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">InitQueue</span><span class="p">(</span><span class="n">SqQueue</span><span class="o">&amp;</span> <span class="n">Q</span><span class="p">)</span> <span class="p">{</span><span class="c1">//初始化队列
+</span><span class="c1"></span>	<span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">front</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">//初始化队首，队尾。
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="2判队空">（2）判队空</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">bool</span> <span class="nf">isEmpty</span><span class="p">(</span><span class="n">SqQueue</span> <span class="o">&amp;</span><span class="n">Q</span><span class="p">)</span> <span class="p">{</span><span class="c1">//队列判空
+</span><span class="c1"></span>	<span class="c1">//cout &lt;&lt; Q.rear &lt;&lt; &#34;---&#34; &lt;&lt; Q.front;
+</span><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">==</span> <span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">)</span><span class="c1">//空返回true
+</span><span class="c1"></span>		<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>	
+	<span class="k">else</span> 
+		<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="3入队">（3）入队</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">bool</span> <span class="nf">EnQueue</span><span class="p">(</span><span class="n">SqQueue</span><span class="o">&amp;</span> <span class="n">Q</span><span class="p">,</span> <span class="n">Elemtype</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="c1">//入队
+</span><span class="c1"></span>	<span class="k">if</span> <span class="p">((</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MaxSize</span> <span class="o">==</span> <span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">)</span>
+		<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">Q</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+	<span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">=</span> <span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MaxSize</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="4出队">（4）出队</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">bool</span> <span class="nf">DeQueue</span><span class="p">(</span><span class="n">SqQueue</span><span class="o">&amp;</span> <span class="n">Q</span><span class="p">,</span> <span class="n">Elemtype</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="c1">//出队
+</span><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">==</span> <span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">)</span>
+		<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">x</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">];</span>
+	<span class="n">Q</span><span class="p">.</span><span class="n">front</span> <span class="o">=</span> <span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MaxSize</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>	
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="5读队头">（5）读队头</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">GetHead</span><span class="p">(</span><span class="n">SqQueue</span><span class="o">&amp;</span> <span class="n">Q</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span><span class="s">&#34;队头====&gt;&#34;</span><span class="o">&lt;&lt;</span> <span class="n">Q</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h4 id="完整代码">完整代码</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="c1">//队列可以用数组也可用链表实现 
+</span><span class="c1"></span><span class="cp">#define MaxSize 11
+</span><span class="cp"></span><span class="k">typedef</span> <span class="kt">int</span> <span class="n">Elemtype</span><span class="p">;</span>
+ <span class="k">struct</span> <span class="nc">SqQueue</span> <span class="p">{</span>
+	<span class="n">Elemtype</span> <span class="n">data</span><span class="p">[</span><span class="n">MaxSize</span><span class="p">];</span>
+	<span class="kt">int</span> <span class="n">front</span><span class="p">,</span> <span class="n">rear</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">InitQueue</span><span class="p">(</span><span class="n">SqQueue</span><span class="o">&amp;</span> <span class="n">Q</span><span class="p">)</span> <span class="p">{</span><span class="c1">//初始化队列
+</span><span class="c1"></span>	<span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">front</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="c1">//初始化队首，队尾。
+</span><span class="c1"></span>	<span class="c1">//cout &lt;&lt; Q.rear &lt;&lt; &#34;---&#34; &lt;&lt; Q.front;
+</span><span class="c1"></span><span class="p">}</span>
+<span class="kt">bool</span> <span class="nf">isEmpty</span><span class="p">(</span><span class="n">SqQueue</span> <span class="o">&amp;</span><span class="n">Q</span><span class="p">)</span> <span class="p">{</span><span class="c1">//队列判空
+</span><span class="c1"></span>	<span class="c1">//cout &lt;&lt; Q.rear &lt;&lt; &#34;---&#34; &lt;&lt; Q.front;
+</span><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">==</span> <span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">)</span><span class="c1">//空返回true
+</span><span class="c1"></span>		<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>	
+	<span class="k">else</span> 
+		<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">bool</span> <span class="nf">EnQueue</span><span class="p">(</span><span class="n">SqQueue</span><span class="o">&amp;</span> <span class="n">Q</span><span class="p">,</span> <span class="n">Elemtype</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="c1">//入队
+</span><span class="c1"></span>	<span class="k">if</span> <span class="p">((</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MaxSize</span> <span class="o">==</span> <span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">)</span>
+		<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">Q</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+	<span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">=</span> <span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MaxSize</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="nf">DeQueue</span><span class="p">(</span><span class="n">SqQueue</span><span class="o">&amp;</span> <span class="n">Q</span><span class="p">,</span> <span class="n">Elemtype</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="c1">//出队
+</span><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span> <span class="o">==</span> <span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">)</span>
+		<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="n">x</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">];</span>
+	<span class="n">Q</span><span class="p">.</span><span class="n">front</span> <span class="o">=</span> <span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MaxSize</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">GetHead</span><span class="p">(</span><span class="n">SqQueue</span><span class="o">&amp;</span> <span class="n">Q</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span><span class="s">&#34;队头====&gt;&#34;</span><span class="o">&lt;&lt;</span> <span class="n">Q</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kt">bool</span> <span class="n">judge</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
+	<span class="n">SqQueue</span> <span class="n">Q</span><span class="p">;</span>
+	<span class="n">InitQueue</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span>
+	<span class="n">Elemtype</span> <span class="n">x</span><span class="o">=-</span><span class="mi">100</span><span class="p">;</span>
+	<span class="n">judge</span> <span class="o">=</span> <span class="n">isEmpty</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span>
+	<span class="c1">//cout &lt;&lt; judge;
+</span><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span><span class="n">judge</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&#34;&lt;===队列为空===&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">else</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span>  <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;===队列不为空===&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;入队ing====&gt;&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+	<span class="cm">/*for (int i = 1; i &lt;= 10; i++) {
+</span><span class="cm">		for (int j = 1; j &lt;= i; j++)
+</span><span class="cm">			cout &lt;&lt; &#34;-&#34;;
+</span><span class="cm">		cout &lt;&lt; &#34;&gt;&#34;&lt;&lt;endl;
+</span><span class="cm">	}*/</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span><span class="c1">//循环入队 MaxSize==11
+</span><span class="c1"></span>		<span class="n">judge</span> <span class="o">=</span> <span class="n">EnQueue</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">judge</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;===入队成功===&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;===入队失败===&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+		<span class="p">}</span>
+
+	<span class="p">}</span> 
+		
+	<span class="n">GetHead</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span>
+	
+	<span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">judge</span> <span class="o">=</span> <span class="n">DeQueue</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="n">judge</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;出队成功===&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+		<span class="p">}</span>
+			
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;出队失败&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+		<span class="p">}</span>
+			
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="n">isEmpty</span><span class="p">(</span><span class="n">Q</span><span class="p">))</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&lt;======空======&gt;&#34;</span><span class="p">;</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" term="数据结构" label="数据结构" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/categories/c%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" term="C栈和队列" label="C栈和队列" />
+                            
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" term="数据结构" label="数据结构" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://brucewayne27.github.io/tags/%E9%98%9F%E5%88%97/" term="队列" label="队列" />
                             
                         
                     
